@@ -22,12 +22,14 @@ function MyApp({ Component, pageProps }: AppProps) {
           content="Wagmi RainbowKit Send Mint Example"
         />
         <meta
+          name="image"
           property="og:image"
           content="https://i.ibb.co/Cp3b6zvM/image.png"
         />
         <meta property="og:url" content="https://ayaz.netlify.app" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="author" content="Muhammad Ayaz" />
       </Head>
       <WagmiProvider config={config}>
         <QueryClientProvider client={client}>
