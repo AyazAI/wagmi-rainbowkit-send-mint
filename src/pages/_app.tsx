@@ -6,19 +6,37 @@ import { RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { WagmiProvider } from "wagmi";
 
+import Head from "next/head";
 import { config } from "../wagmi";
 
 const client = new QueryClient();
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <WagmiProvider config={config}>
-      <QueryClientProvider client={client}>
-        <RainbowKitProvider>
-          <Component {...pageProps} />
-        </RainbowKitProvider>
-      </QueryClientProvider>
-    </WagmiProvider>
+    <>
+      <Head>
+        <title>Your Website Title</title>
+        <meta property="og:title" content="Wagmi RainbowKit Send Mint" />
+        <meta
+          property="og:description"
+          content="Wagmi RainbowKit Send Mint Example"
+        />
+        <meta
+          property="og:image"
+          content="https://i.ibb.co/Cp3b6zvM/image.png"
+        />
+        <meta property="og:url" content="https://ayaz.netlify.app" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Head>
+      <WagmiProvider config={config}>
+        <QueryClientProvider client={client}>
+          <RainbowKitProvider>
+            <Component {...pageProps} />
+          </RainbowKitProvider>
+        </QueryClientProvider>
+      </WagmiProvider>
+    </>
   );
 }
 
